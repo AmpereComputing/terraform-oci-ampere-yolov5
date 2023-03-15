@@ -1,5 +1,5 @@
-title: "DeathStarBench on Ampere A1 VM Instances on OCI"
-stackDescription: "DeathStarBench Ampere A1 VM Instances on OCI"
+title: "YOLOv5 demo on Ampere A1 VM Instances on OCI"
+stackDescription: "YOLOv5 Ampere A1 VM Instances on OCI"
 schemaVersion: 0.0.1
 version: "20230216"
 locale: "en"
