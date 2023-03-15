@@ -30,7 +30,7 @@ variable "oci_vcn_cidr_subnet" {
 
 variable "instance_prefix" {
   description = "Name prefix for vm instances"
-  default = "ampere-pytorch"
+  default = "ampere-yolov5"
 }
 
 # OCI Free Tier Ampere A1 provides 4 cores and  24G of memory.

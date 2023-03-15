@@ -3,7 +3,7 @@
 resource "oci_core_virtual_network" "ampere_vcn" {
   cidr_block     = var.oci_vcn_cidr_block
   compartment_id = var.tenancy_ocid
-  display_name   = "AmpereVCN-AI"
+  display_name   = "AmpereVirtualCoreNetwork-AI"
   dns_label      = "amperevcnai"
 }
 

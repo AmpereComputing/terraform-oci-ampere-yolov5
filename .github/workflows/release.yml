@@ -35,4 +35,4 @@ jobs:
           prerelease: false
           title: "ORM Latest Development Build"
           files: |
-            oci-ampere-pytorch-latest.zip
+            oci-ampere-yolov5-latest.zip

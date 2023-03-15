@@ -49,6 +49,4 @@ runcmd:
   - export GRADIO_SERVER_PORT=7860
   - export HOST_PORT=7000
   - export NUM_THREADS=32
-  - echo `docker version` > "before-docker.log"
   - docker compose -f /home/ubuntu/compose.yaml -p cont-1 up -d app-yolo-offline
-  - touch "after-docker.log"

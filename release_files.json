@@ -1,7 +1,7 @@
 [
   {
     "action": "create_zip",
-    "file_name": "oci-ampere-pytorch-latest.zip",
+    "file_name": "oci-ampere-yolov5-latest.zip",
     "files": [
       {
         "src_pattern": "*.tf",

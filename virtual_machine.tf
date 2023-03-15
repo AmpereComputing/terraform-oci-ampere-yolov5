@@ -2,7 +2,7 @@ resource "oci_core_instance" "ampere_a1" {
   count               = var.oci_vm_count
   availability_domain = data.oci_identity_availability_domains.ads.availability_domains.0.name
   compartment_id      = var.tenancy_ocid
-  display_name        = "AmpereAI-demo-0"
+  display_name        = "AmpereA1-AI-demo-yolov5"
   shape               = "VM.Standard.A1.Flex"
 
   create_vnic_details {
