@@ -10,7 +10,7 @@ After completing the instructions of **"Launching A1 Shape With Terraform"** bel
 examine the IP address of the compute instance using Oracle Cloud Console. Usually, it will take a few minutes, after the
 instance is provisioned, for docker container to be initialized and started. 
 
-[![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/AmpereComputing/terraform-oci-ampere-ai-demo-yolov5/releases/download/latest/oci-ampere-yolov5-latest.zip)
+[![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?zipUrl=https://github.com/AmpereComputing/terraform-oci-ampere-yolov5/releases/download/latest/oci-ampere-yolov5-latest.zip)
 
 ## Demo URL on port 7000 ##
 
