@@ -104,6 +104,74 @@ terraform init && terraform plan && terraform apply -auto-approve
 * WordPress on Ampere A1: [https://github.com/oracle-quickstart/oci-arch-wordpress-mds/tree/master/matomo](https://github.com/oracle-quickstart/oci-arch-wordpress-mds/tree/master/matomo)
 
 <!-- BEGIN_TF_DOCS -->
+## Requirements
+
+No requirements.
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_local"></a> [local](#provider\_local) | n/a |
+| <a name="provider_oci"></a> [oci](#provider\_oci) | n/a |
+| <a name="provider_random"></a> [random](#provider\_random) | n/a |
+| <a name="provider_template"></a> [template](#provider\_template) | n/a |
+| <a name="provider_tls"></a> [tls](#provider\_tls) | n/a |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [local_file.oci-ssh-privkey](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
+| [local_file.oci-ssh-pubkey](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
+| [oci_core_instance.ampere_a1](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_instance) | resource |
+| [oci_core_internet_gateway.ampere_internet_gateway](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_internet_gateway) | resource |
+| [oci_core_route_table.ampere_route_table](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_route_table) | resource |
+| [oci_core_security_list.ampere_security_list](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_security_list) | resource |
+| [oci_core_subnet.ampere_subnet](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_subnet) | resource |
+| [oci_core_virtual_network.ampere_vcn](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_virtual_network) | resource |
+| [random_uuid.random_id](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/uuid) | resource |
+| [tls_private_key.oci](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key) | resource |
+| [oci_core_images.ubuntu-20_04-aarch64](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/core_images) | data source |
+| [oci_identity_availability_domains.ads](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/identity_availability_domains) | data source |
+| [oci_identity_regions.regions](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/identity_regions) | data source |
+| [oci_identity_tenancy.tenancy](https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/identity_tenancy) | data source |
+| [template_file.cloud_config](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_ampere_a1_cpu_core_count"></a> [ampere\_a1\_cpu\_core\_count](#input\_ampere\_a1\_cpu\_core\_count) | Default core count for Ampere A1 instances in OCI | `string` | `"4"` | no |
+| <a name="input_ampere_a1_vm_memory"></a> [ampere\_a1\_vm\_memory](#input\_ampere\_a1\_vm\_memory) | Default RAM in GB for Ampere A1 instances in OCI Free Tier | `string` | `"24"` | no |
+| <a name="input_fingerprint"></a> [fingerprint](#input\_fingerprint) | OCI Fingerprint ID for Free-Tier Account | `any` | n/a | yes |
+| <a name="input_instance_prefix"></a> [instance\_prefix](#input\_instance\_prefix) | Name prefix for vm instances | `string` | `"ampere-yolov5"` | no |
+| <a name="input_oci_vcn_cidr_block"></a> [oci\_vcn\_cidr\_block](#input\_oci\_vcn\_cidr\_block) | CIDR Address range for OCI Networks | `string` | `"10.3.0.0/16"` | no |
+| <a name="input_oci_vcn_cidr_subnet"></a> [oci\_vcn\_cidr\_subnet](#input\_oci\_vcn\_cidr\_subnet) | CIDR Address range for OCI Networks | `string` | `"10.3.1.0/24"` | no |
+| <a name="input_oci_vm_count"></a> [oci\_vm\_count](#input\_oci\_vm\_count) | OCI Free Tier Ampere A1 is two instances | `number` | `1` | no |
+| <a name="input_private_key_path"></a> [private\_key\_path](#input\_private\_key\_path) | Local path to the OCI private key file | `any` | n/a | yes |
+| <a name="input_tenancy_ocid"></a> [tenancy\_ocid](#input\_tenancy\_ocid) | OCI Tenancy ID for Free-Tier Account | `any` | n/a | yes |
+| <a name="input_user_ocid"></a> [user\_ocid](#input\_user\_ocid) | OCI User ID for Free-Tier Account | `any` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_AmpereA1_BootVolumeIDs"></a> [AmpereA1\_BootVolumeIDs](#output\_AmpereA1\_BootVolumeIDs) | Output the boot volume IDs of the instance |
+| <a name="output_AmpereA1_PrivateIPs"></a> [AmpereA1\_PrivateIPs](#output\_AmpereA1\_PrivateIPs) | Output the private IPs of the instance |
+| <a name="output_AmpereA1_PublicIPs"></a> [AmpereA1\_PublicIPs](#output\_AmpereA1\_PublicIPs) | Output the public IPs of the instance |
+| <a name="output_OCI_Availability_Domains"></a> [OCI\_Availability\_Domains](#output\_OCI\_Availability\_Domains) | Output Availability Domain Results |
+| <a name="output_Ubuntu-20_04-aarch64-latest_name"></a> [Ubuntu-20\_04-aarch64-latest\_name](#output\_Ubuntu-20\_04-aarch64-latest\_name) | Output OCI Ubuntu 20.04 Image Name |
+| <a name="output_Ubuntu-20_04-aarch64-latest_ocid"></a> [Ubuntu-20\_04-aarch64-latest\_ocid](#output\_Ubuntu-20\_04-aarch64-latest\_ocid) | Output OCI Ubuntu 20.04 Image ID |
+| <a name="output_cloud_init"></a> [cloud\_init](#output\_cloud\_init) | Ouput rendered Cloud-Init Metadata |
+| <a name="output_oci_home_region"></a> [oci\_home\_region](#output\_oci\_home\_region) | Output the OCI home region |
+| <a name="output_oci_ssh_private_key"></a> [oci\_ssh\_private\_key](#output\_oci\_ssh\_private\_key) | Output the OCI SSH Private Key |
+| <a name="output_oci_ssh_pubic_key"></a> [oci\_ssh\_pubic\_key](#output\_oci\_ssh\_pubic\_key) | Output the OCI SSH Public Key |
+| <a name="output_random_uuid"></a> [random\_uuid](#output\_random\_uuid) | Output the randomly generated uuid |
 <!-- END_TF_DOCS -->
 
 ## References
