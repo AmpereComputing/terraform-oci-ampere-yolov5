@@ -103,6 +103,8 @@ terraform init && terraform plan && terraform apply -auto-approve
 * Apache Tomcat on Ampere A1: [https://github.com/oracle-devrel/terraform-oci-arch-tomcat-autonomous](https://github.com/oracle-devrel/terraform-oci-arch-tomcat-autonomous)
 * WordPress on Ampere A1: [https://github.com/oracle-quickstart/oci-arch-wordpress-mds/tree/master/matomo](https://github.com/oracle-quickstart/oci-arch-wordpress-mds/tree/master/matomo)
 
+<!-- BEGIN_TF_DOCS -->
+<!-- END_TF_DOCS -->
 
 ## References
 

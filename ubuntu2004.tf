@@ -10,15 +10,19 @@ data "oci_core_images" "ubuntu-20_04-aarch64" {
   # include Aarch64 specific images
   filter {
     name   = "display_name"
-    values = ["^.*-aarch64-.*$"]
+     values = ["^.*-aarch64-.*$"]
     regex  = true
   }
 }
 
+# Output OCI Ubuntu 20.04 Image Name
 output "Ubuntu-20_04-aarch64-latest_name" {
-  value = data.oci_core_images.ubuntu-20_04-aarch64.images.0.display_name
+  value     = data.oci_core_images.ubuntu-20_04-aarch64.images.0.display_name
+  sensitive = false
 }
 
+# Output OCI Ubuntu 20.04 Image ID
 output "Ubuntu-20_04-aarch64-latest_ocid" {
-  value = data.oci_core_images.ubuntu-20_04-aarch64.images.0.id
+  value     = data.oci_core_images.ubuntu-20_04-aarch64.images.0.id
+  sensitive = false
 }

@@ -5,24 +5,32 @@ resource "tls_private_key" "oci" {
 }
 
 resource "local_file" "oci-ssh-privkey" {
-  content         = tls_private_key.oci.private_key_pem
-  filename        = "${path.module}/oci-id_rsa"
-  file_permission = "0600"
+    content = tls_private_key.oci.private_key_pem
+    filename = "${path.module}/oci-id_rsa"
+    file_permission = "0600"
 }
 
 resource "local_file" "oci-ssh-pubkey" {
-  content         = tls_private_key.oci.public_key_openssh
-  filename        = "${path.module}/oci-id_rsa.pub"
-  file_permission = "0644"
+    content  = tls_private_key.oci.public_key_openssh
+    filename = "${path.module}/oci-id_rsa.pub"
+    file_permission = "0644"
 }
 
+# Output the OCI SSH Public Key
 output "oci_ssh_pubic_key" {
   value = tls_private_key.oci.public_key_openssh
 }
 
+# Output the OCI SSH Private Key
 output "oci_ssh_private_key" {
-  value     = tls_private_key.oci.private_key_pem
+  value = tls_private_key.oci.private_key_pem
   sensitive = true
 }
 
-resource "random_uuid" "random_id" {}
+resource "random_uuid" "random_id" { }
+
+# Output the randomly generated uuid
+output "random_uuid" {
+  value = random_uuid.random_id.result 
+  sensitive = false
+} 

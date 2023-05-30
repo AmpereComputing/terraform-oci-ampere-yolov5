@@ -1,9 +1,9 @@
-# Output the private and public IPs of the instance
-
+# Output the private IPs of the instance
 output "AmpereA1_PrivateIPs" {
   value = ["${oci_core_instance.ampere_a1.*.private_ip}"]
 }
 
+# Output the public IPs of the instance
 output "AmpereA1_PublicIPs" {
   value = ["${oci_core_instance.ampere_a1.*.public_ip}"]
 }

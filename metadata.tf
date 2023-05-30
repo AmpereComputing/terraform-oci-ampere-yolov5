@@ -1,5 +1,3 @@
-# Cloud Init Metadata
-
 data "template_file" "cloud_config" {
   template = file("${path.module}/templates/cloud-init.yaml.tpl")
   vars = {
@@ -9,6 +7,7 @@ data "template_file" "cloud_config" {
   }
 }
 
+# Ouput rendered Cloud-Init Metadata
 output "cloud_init" {
   value = data.template_file.cloud_config.rendered
 }
